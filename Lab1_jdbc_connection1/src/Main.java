@@ -9,7 +9,7 @@ public class Main {
 
     private static final String URL = "jdbc:mysql://localhost:3306/jdbc_db";
     private static final String USERNAME = "hiruy";
-    private static final String PASSWORD = "january62005";
+    private static final String PASSWORD = "password";
 
     public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
@@ -106,7 +106,6 @@ public class Main {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             int rowsDeleted = pstmt.executeUpdate();
-            System.out.println("Deleted " + rowsDeleted + " row(s) for User ID: " + id);
-        }
+            System.out.println("Deleted " + rowsDeleted + " row(s) for User ID: " + id);        }
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Address bean -->
+    <bean id="address" class="com.craft.Address">
+        <property name="city" value="Addis Ababa"/>
+        <property name="country" value="Ethiopia"/>
+    </bean>
+
+    <!-- Subject beans -->
+    <bean id="math" class="com.craft.Subject">
+        <property name="subjectName" value="Mathematics"/>
+    </bean>
+
+    <bean id="java" class="com.craft.Subject">
+        <property name="subjectName" value="Java"/>
+    </bean>
+
+    <!-- Student: setter injection, object injection, and collection injection -->
+    <bean id="student" class="com.craft.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Bisrat"/>
+        <property name="age" value="21"/>
+        <property name="city" value="Addis Ababa"/>
+        <property name="country" value="Ethiopia"/>
+        <property name="address" ref="address"/>
+        <property name="subjects">
+            <list>
+                <ref bean="math"/>
+                <ref bean="java"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Constructor injection -->
+    <bean id="studentConstructor" class="com.craft.Student">
+        <constructor-arg name="id" value="102"/>
+        <constructor-arg name="name" value="Abebe"/>
+        <constructor-arg name="age" value="22"/>
+    </bean>
+
+    <!-- Prototype scope -->
+    <bean id="studentPrototype" class="com.craft.Student" scope="prototype">
+        <property name="name" value="Prototype Student"/>
+    </bean>
+
+</beans>
